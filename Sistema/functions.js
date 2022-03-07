@@ -12,12 +12,16 @@ const alfabeto_numeros = ['0','1','2','3','4','5','6','7','8','9']
 const alfabeto_simbolos = ['!','@','#','$','%','&','*']
 
 
-
+const resultado = {
+    nome:"",
+    senha:""
+}
 
 
 async function embaralha(nome, tamanho, minuscula, maiuscula, simbolo, numeros){
 
     let senha = [];
+    let senha_concatenada;
 
     if( minuscula && maiuscula && simbolo && numeros){
 
@@ -196,9 +200,18 @@ async function embaralha(nome, tamanho, minuscula, maiuscula, simbolo, numeros){
             senha.push(letra);
             i++;
         }
+    }else{
+        console.log("A opção escolhida não é vlálida");
     }
-    console.log(senha);
+
+    resultado.nome = nome;
+    resultado.senha = senha.join('');
+    if(resultado.senha === ""){
+        resultado.senha = "Parabéns, você desmarcou todos os itens! impossivel gerar senha"
+        return resultado;
+    }
+    console.log(resultado);
 }
     
 
-module.exports = {embaralha}
+module.exports = {resultado, embaralha}

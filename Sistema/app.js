@@ -15,7 +15,7 @@ const server = http.Server(app);
 app.use(bodyParser.urlencoded({extended:true}));
 app.engine('ejs', require('ejs').renderFile); 
 app.set('view engine', 'ejs');
-app.set('Views', 'Views');
+app.set('Views');
 app.use(cors());
 
 

@@ -7,12 +7,18 @@
     <title>Gerador</title>
 </head>
 <body>
-    <h1>EJS is working....</h1>
+    <h1>Gerador de senhas....</h1>
 
-    <form method="POST" action="/">
+    <form method="POST" action="/gerador">
         <label>Qual o nome dessa senha?</label>
-        <input type="text" name="sistema_html" placeholder="Ex: senha netflix" required />
-        <input type="range" min="3" max="30" value="10" name="tamanho_html" required>
+        <input type="text" name="nome_html" placeholder="Ex: senha netflix" required />
+        <!--<input type="range" min="3" max="30" value="10" name="tamanho_html" required>-->
+        <input type="number" name="tamanho_html" placeholder="Ex: quantas letras" required />
+        <input type="checkbox" name="minuscula_html" checked><label for="scales">Letra minuscula</label>
+        <input type="checkbox" name="maiuscula_html" checked><label for="scales">Letra maiuscula</label>
+        <input type="checkbox" name="simbolos_html" checked><label for="scales">Simbolos</label>
+        <input type="checkbox" name="numeros_html" checked><label for="scales">numeros</label>
+
         <button>Gerar</button>
     </form>
 

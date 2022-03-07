@@ -17,13 +17,20 @@ rota.get('/', (req, res) => {
     
 });
 
-rota.post('/', (req, res) => {
+rota.post('/gerador', (req, res) => {
 
-    const teste = req.body.sistema_html
-    const teste2 = req.body.tamanho_html
-    console.log(teste, teste2);
+    const nome = req.body.nome_html
+    const tamanho = req.body.tamanho_html
+    const minuscula = req.body.minuscula_html
+    const maiuscula = req.body.maiuscula_html
+    const simbolo = req.body.simbolos_html
+    const numeros = req.body.numeros_html
 
-    res.render('index.ejs');
+    functions.embaralha(nome, tamanho, minuscula, maiuscula, simbolo, numeros)
+
+        
+    
+    res.redirect('/');
 })
 
 

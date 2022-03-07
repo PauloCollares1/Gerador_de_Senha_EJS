@@ -1,0 +1,19 @@
+{
+  "name": "gerador_senhas",
+  "version": "1.0.0",
+  "description": "Gerador de senhas com EJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Sistema/app.js"
+  },
+  "author": "PauloDev1",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  }
+}

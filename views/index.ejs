@@ -9,6 +9,7 @@
 <body>
     <h1>Gerador de senhas....</h1>
     <label>Qual o nome dessa senha?</label>
+
     <form method="POST" action="/gerador">
         <div>
             <input type="text" name="nome_html" placeholder="Ex: senha netflix" required />
@@ -24,17 +25,29 @@
             <input type="checkbox" name="simbolos_html" checked><label for="scales">Simbolos</label>
             <input type="checkbox" name="numeros_html" checked><label for="scales">numeros</label>
         <br>
-        <div>
             <button>Gerar senha</button>   
     </form>
+
     <br>
     <br>
+
     <div>
-       Nome: <%= myVar_html.nome %>
+        <% for(let i = 0; i < myVar_html.length; i++) {%>
+            <li>
+                <b>Nome:</b>  <%= myVar_html[i].nome %>
+                <b>Senha:</b> <%= myVar_html[i].senha %>
+                <a href="/resetarget"><button>Apagar</button></a>
+            </li>
+            <br>
+        <% } %>
     </div>
-    <div>
-        Senha: <%= myVar_html.senha %>
-    </div>
+
+    <button onclick=""></button>
+     
+    
+<script>
+    
+</script>
 
 </body>
 </html>

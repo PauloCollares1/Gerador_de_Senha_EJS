@@ -1,14 +1,13 @@
-const http = require('http');
 const fs = require('fs');
 
 
+// --- Construtores auxiliares --- //
 let resultado = {
     nome:"",
     senha:""
 }
 
 let lista = [];
-
 
 const alfabeto_pequeno = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q"
 ,"r","s","t","u","v","w","x","y","z"];
@@ -21,7 +20,7 @@ const alfabeto_numeros = ['0','1','2','3','4','5','6','7','8','9'];
 const alfabeto_simbolos = ['!','@','#','$','%','&','*'];
 
 
-
+// --- Função principal --- //
 
 
 async function embaralha(nome, tamanho, minuscula, maiuscula, simbolo, numeros){
@@ -210,21 +209,23 @@ async function embaralha(nome, tamanho, minuscula, maiuscula, simbolo, numeros){
     }
 
   
-    lista.pop();
-    lista.push({nome:nome, senha:senha.join('')});
-
-
-    if(senha === ""){
-        resultado.senha = "Parabéns, você desmarcou todos os itens! impossivel gerar senha"
-        return resultado;
-    }
-}
-
-
-function zerar_lista(){
-    return console.log(lista);
+    //lista.pop();
+    let senha_concat = senha.join('');
+    lista.push({"nome":nome, "senha":senha_concat});
+    let meu_texto = JSON.stringify(lista);
+    // Escrevendo arquvo //
+    fs.writeFile('./Senha Gerada.txt', meu_texto, (err) => {
+        if(err) return console.log(err);
+        console.log('Arquivo gerado com sucesso');
+    });
 }
 
 
 
-module.exports = {lista, embaralha, zerar_lista}
+
+
+
+
+
+
+module.exports = {lista, embaralha}

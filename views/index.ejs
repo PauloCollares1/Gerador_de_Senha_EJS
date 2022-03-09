@@ -4,50 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Gerador de senha</title>
 </head>
 <body>
-    <h1>Gerador de senhas....</h1>
-    <label>Qual o nome dessa senha?</label>
-
-    <form method="POST" action="/gerador">
-        <div>
-            <input type="text" name="nome_html" placeholder="Ex: senha netflix" required />
+    <div class="container">
+        <h1>Gerador de senha</h1>
+        <div class="card">
+            <div class="d-flex flex-column align-items-center justify-content-betwen p-3">  
+                <label><p>Qual o nome dessa senha?</p></label>
+                <form method="POST" action="/gerador"  class="d-flex flex-column align-items-center justify-content-betwen">
+                    <div>
+                        <input type="text" name="nome_html" min="1" maxlength="30" placeholder="Ex: Netflix" required />
+                    </div>
+                    <br>
+                    <div class="d-flex flex-column">
+                        <label class="mt-10"><p>Qual o tamanho da senha?</p></label>
+                        <input type="number" name="tamanho_html" placeholder="Ex: quantas letras" min="6" max="30" required />
+                    </div>
+                    <br>
+                        <div class="flex">
+                            <input type="checkbox" name="minuscula_html" class="form-check-input" checked><label for="scales">Letra minuscula</label>
+                            <input type="checkbox" name="maiuscula_html" class="form-check-input" checked><label for="scales">Letra maiuscula</label>
+                            <input type="checkbox" name="simbolos_html" class="form-check-input" checked><label for="scales">Simbolos</label>
+                            <input type="checkbox" name="numeros_html" class="form-check-input" checked><label for="scales">numeros</label>
+                        </div>
+                        <br>
+                        <button class="btn btn-info">Gerar senha</button>
+                </form>
+            </div>  
         </div>
         <br>
+        <br>
         <div>
-            <!--<input type="range" min="3" max="30" value="10" name="tamanho_html" required>-->
-            <input type="number" name="tamanho_html" placeholder="Ex: quantas letras" min="6" max="30" required />
+            <% for(let i = 0; i < myVar_html.length; i++) {%>
+                    <div class="card">
+                        <div class="d-flex flex-column align-items-center justify-content-betwen p-3">
+                            <b>Nome da senha:</b>  <%= myVar_html[i].nome %>
+                            <b>Senha:</b> <%= myVar_html[i].senha %>
+                            
+                            <div>
+                                <a href="/resetarget"><button class="btn btn-danger">Apagar</button></a>
+                                <a href="/resetarget"><button class="btn btn-success">Download</button></a>
+                            </div>
+
+                        </div>
+                    </div>
+                
+                <br>
+            <% } %>
         </div>
-        <br>
-            <input type="checkbox" name="minuscula_html" checked><label for="scales">Letra minuscula</label>
-            <input type="checkbox" name="maiuscula_html" checked><label for="scales">Letra maiuscula</label>
-            <input type="checkbox" name="simbolos_html" checked><label for="scales">Simbolos</label>
-            <input type="checkbox" name="numeros_html" checked><label for="scales">numeros</label>
-        <br>
-            <button>Gerar senha</button>   
-    </form>
-
-    <br>
-    <br>
-
-    <div>
-        <% for(let i = 0; i < myVar_html.length; i++) {%>
-            <li>
-                <b>Nome:</b>  <%= myVar_html[i].nome %>
-                <b>Senha:</b> <%= myVar_html[i].senha %>
-                <a href="/resetarget"><button>Apagar</button></a>
-            </li>
-            <br>
-        <% } %>
-    </div>
-
-    <button onclick=""></button>
-     
-    
-<script>
-    
-</script>
-
+    </div> 
 </body>
 </html>
